@@ -6,25 +6,22 @@
 #* Creative commons                                                        *
 #*-------------------------------------------------------------------------*
 import sys
-def factorial(num): 
-    if num < 0: 
-        print("Factorial de un número negativo no existe")
-        return 0
-    elif num == 0: 
+
+
+inf = int(input("Ingrese el extremo inferior: "))
+sup = int(input("Ingrese el extremo superior: "))
+
+
+def factorial(num):
+    if num < 0:
+        return "Factorial no definido para números negativos"
+    elif num == 0 or num == 1:
         return 1
-        
-    else: 
+    else:
         fact = 1
-        while(num > 1): 
-            fact *= num 
-            num -= 1
-        return fact 
+        for i in range(2, num + 1):
+            fact *= i
+        return fact
 
-if len(sys.argv) < 2:
-   print("Debe informar un número")
-   sys.exit()
-
-num=int(sys.argv[1])
-
-print("Factorial ",num,"! es ", factorial(num)) 
-
+for i in range(inf, sup + 1):
+    print(f"Factorial de {i} es {factorial(i)}")
