@@ -21,7 +21,7 @@ def factorial(num):
         return fact 
 
 if len(sys.argv) < 2:
-   print("Debe informar un número!")
+   print("Debe informar un número")
    sys.exit()
 
 num=int(sys.argv[1])
