@@ -44,3 +44,6 @@ inf, sup = solicitar_rango()
 
 for i in range(inf, sup + 1):
     print(f"Factorial de {i} es {factorial(i)}")
+    
+    
+#Agregando comentarios
