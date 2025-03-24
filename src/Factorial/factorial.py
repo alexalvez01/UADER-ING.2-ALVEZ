@@ -7,10 +7,16 @@
 #*-------------------------------------------------------------------------*
 import sys
 
+def solicitar_numero(mensaje):
+    while True:
+        try:
+            num = int(input(mensaje))
+            return num
+        except ValueError:
+            print("Error: Por favor, ingrese un número entero válido.")
 
-inf = int(input("Ingrese el extremo inferior: "))
-sup = int(input("Ingrese el extremo superior: "))
-
+inf = solicitar_numero("Ingrese el extremo inferior: ")
+sup = solicitar_numero("Ingrese el extremo superior: ")
 
 def factorial(num):
     if num < 0:
