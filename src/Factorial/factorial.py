@@ -7,16 +7,25 @@
 #*-------------------------------------------------------------------------*
 import sys
 
-def solicitar_numero(mensaje):
+def solicitar_rango():
     while True:
         try:
-            num = int(input(mensaje))
-            return num
+            entrada = input("Ingrese el rango (ejemplo: '-10' para hasta 10, '20-' para desde 20, o '5 15' para un rango completo): ").strip()
+            
+            if entrada.startswith("-"):  
+                sup = int(entrada[1:])
+                return 1, sup
+            
+            elif entrada.endswith("-"):  
+                inf = int(entrada[:-1])
+                return inf, 60
+            
+            else:  
+                inf, sup = map(int, entrada.split())
+                return inf, sup
+        
         except ValueError:
-            print("Error: Por favor, ingrese un número entero válido.")
-
-inf = solicitar_numero("Ingrese el extremo inferior: ")
-sup = solicitar_numero("Ingrese el extremo superior: ")
+            print("Error: Formato incorrecto. Intente de nuevo.")
 
 def factorial(num):
     if num < 0:
@@ -28,6 +37,10 @@ def factorial(num):
         for i in range(2, num + 1):
             fact *= i
         return fact
+
+
+inf, sup = solicitar_rango()
+
 
 for i in range(inf, sup + 1):
     print(f"Factorial de {i} es {factorial(i)}")
